@@ -1,0 +1,16 @@
+plugins {
+    id 'java-gradle-plugin'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+task buildBala(type : Exec){
+    workingDir 'src/main/ballerina'
+    commandLine 'cmd', '/c','bal', 'build', 'App.bal',
+                '&&', 'move', 'App.jar', '../../../build/ballerina',
+                '&&', 'cd', '../../../build/ballerina',
+                '&&', 'bal', 'run', 'App.jar'
+}
