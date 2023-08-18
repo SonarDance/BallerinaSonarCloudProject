@@ -1,11 +1,20 @@
 plugins {
-    id 'java-gradle-plugin'
+    // setting plugin for sonarcloud
+    id "application"
+    id "org.sonarqube" version "4.2.1.3168"
 }
 
 repositories {
     mavenCentral()
 }
 
+sonar {
+  properties {
+    property "sonar.projectKey", "SonarDance_BallerinaSonarCloudProject"
+    property "sonar.organization", "sonardance"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
 
 task buildBala(type : Exec){
     workingDir 'src/main/ballerina'

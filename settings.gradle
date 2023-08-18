@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'BallerinaSonarCloudProject'
-include('main')
+include('app')
